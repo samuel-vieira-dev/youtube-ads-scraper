@@ -22,9 +22,10 @@ def download_and_transcribe_audio(url):
         audio_file = ydl.prepare_filename(info_dict).rsplit('.', 1)[0] + '.mp3'
     
     transcription = ""
+    api_key = os.getenv("OPENAI_API_KEY")
     try:
         headers = {
-            'Authorization': 'Bearer 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'
+            'Authorization': f'Bearer {api_key}'
         }
         data = {
             'model': 'whisper-1',
